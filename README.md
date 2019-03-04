@@ -3,9 +3,18 @@ Code re. counting orthogonal transcription factor combinations.
 
 This repository has a MATLAB script (TFCombinationsCount) and a set of helper functions that allow the user to count orthogonal transcription factor (TF) combinations given a number of operator/TFs and a set of repression matrices (e.g. "An Emerging Transcriptional Programming Edifice: Leveraging an Engineered System of Transcription Factors and Genetic Architectures", Figure 2). 
 
+Stepping through TFCombinationsCount, on line 5 the user chooses the number of TFs to include in all combinations considered in the calculation (currently configured for 2, 3 and 4 only; see details below), stored as numberOfTFs. 'Xs' designates whether to include the Xs phenotype in the calculation; 1 for yes, 0 for no. 'antilac' designates whether to include the antilac phenotype in the calculation; 1 for yes, 0 for no. 'Combinatorial' designates whether the calculation should reject variations in TF and operator repression strength (see below) (1 for yes, 0 for no). 'Permutational' designates whether the calculation should include variations in TF strength, and 'operatorDiff' in tandem with permutational designates whether the calculation should include variations in operator strength (see below) (1 for yes, 0 for no). Either combinatorial or permutational, but not both, should be set to 1. 
+
+The 'TFinputsRec' helper function feeds in repression matrix data. Functional phenotypes are input as '1's, nonfunctional as '0's. These inputs can be customized for any repression matrices (so long as the user is prepared to debug simple errors this causes in the code, since it's customized to 7x7 matrices for this study). 
+
+The 'XsInputsRec' helper function adds in Xs phenotypes to the repression matrices.
+
+The 'GetTFsets' helper function feeds in the combinatorial groupings of numberOfTFs TFs. These were solved by hand and entered manually, and these groupings reject TFs that are inducible by the same ligand. This can be extended for any number of TFs, but currently only allows for groupings of 2, 3, or 4 TFs. 
+
+The code then steps through each repression matrix entry in the first TF from TFset from GetTFsets and compares it to every repression matrix entry in the second TF from TFset. The code rejects any non-orthogonal groupings which can occur if the TFs bind to the same operator (i.e. if any of the entries on their respective columns overlap by row). Accepted groupings are stored in a 3D cell array with each layer specific to a TFsets entry, and the total number of rows in the cell array at the end of the calculation is the number of TF combinations given the input parameters. Further details are annotated in the code.
 
 
-From Supplemental Information of "An Emerging Transcriptional Programming Edifice: Leveraging an Engineered System of Transcription Factors and Genetic Architectures" (see SI for associated figures and table):
+Some further details from the Supplemental Information of "An Emerging Transcriptional Programming Edifice: Leveraging an Engineered System of Transcription Factors and Genetic Architectures" (see SI for associated figures and table):
 
 To better understand the number of unique TF/operator groupings enabled by our chimeric set of TFs, we have performed combinatorial and permutational analyses of the operator architectures presented in this paper (SERI, PARA, SERI [PARA] hAND, and the master circuit, SERI [PARA] SERI). For the purposes of these calculations, we consider only those circuits wherein (1) each TF interacts with only one operator, and no other TF interacts with that operator, and (2) only one gene is under control of these operators (even if there are multiple copies of that gene under control, as in the PARA architecture). The number of unique combinations for each operator architecture, phenotype selection, and starting assumptions is presented in Table S1.
 
