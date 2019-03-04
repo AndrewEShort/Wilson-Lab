@@ -2,7 +2,7 @@ clear
 clc
 
 % The user sets solution parameters here
-numberOfTFs = 5; 
+numberOfTFs = 4; 
 Xs = 1;
 antilac = 1;
 combinatorial = 1;
