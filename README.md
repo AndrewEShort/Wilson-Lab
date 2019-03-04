@@ -2,6 +2,9 @@
 Code re. counting orthogonal transcription factor combinations.
 
 This repository has a MATLAB script (TFCombinationsCount) and a set of helper functions that allow the user to count orthogonal transcription factor (TF) combinations given a number of operator/TFs and a set of repression matrices (e.g. "An Emerging Transcriptional Programming Edifice: Leveraging an Engineered System of Transcription Factors and Genetic Architectures", Figure 2). 
+
+
+
 From Supplemental Information of "An Emerging Transcriptional Programming Edifice: Leveraging an Engineered System of Transcription Factors and Genetic Architectures" (see SI for associated figures and table):
 
 To better understand the number of unique TF/operator groupings enabled by our chimeric set of TFs, we have performed combinatorial and permutational analyses of the operator architectures presented in this paper (SERI, PARA, SERI [PARA] hAND, and the master circuit, SERI [PARA] SERI). For the purposes of these calculations, we consider only those circuits wherein (1) each TF interacts with only one operator, and no other TF interacts with that operator, and (2) only one gene is under control of these operators (even if there are multiple copies of that gene under control, as in the PARA architecture). The number of unique combinations for each operator architecture, phenotype selection, and starting assumptions is presented in Table S1.
