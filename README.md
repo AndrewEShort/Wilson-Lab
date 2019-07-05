@@ -1,5 +1,3 @@
-#Wilson-Lab
-
 This file includes a MATLAB script (TFCombinationsCount) and a set of helper functions that allow the user to count orthogonal transcription factor (TF) combinations given a number of operator/TFs and a set of repression matrices (e.g. "An Emerging Transcriptional Programming Edifice: Leveraging an Engineered System of Transcription Factors and Genetic Architectures", Figure 2). Any given repression matrices can be fed into the TFCombinationsCount script using GetTFsets.m, TfinputsRec.m, and XsInputsRec.m, though datasets that are not 7x7 will require the user to update and debug the code somewhat (see below). 
 
 System Requirements:
